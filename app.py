@@ -11,6 +11,8 @@ def home():
 
 @app.route("/<string:username>",methods=["POST"])
 def download(username):
+    with open("prof",'a') as f:
+        f.write(f"{str(username)}\n")
     return download_pic(username)
 
 
