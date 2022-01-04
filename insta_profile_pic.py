@@ -23,7 +23,7 @@ def download_pic(uname):
 
     url=profile.get_profile_pic_url()
 
-    urllib.request.urlretrieve(url,f"caps/{uname}.jpg")
+    # urllib.request.urlretrieve(url,f"caps/{uname}.jpg")
 
     
     return url
