@@ -19,9 +19,12 @@ def download_pic(uname):
     # else:
 
         # Obtain profile metadata
-    profile = instaloader.Profile.from_username(L.context,uname)
+    try:
+        profile = instaloader.Profile.from_username(L.context,uname)
 
-    url=profile.get_profile_pic_url()
+        url=profile.get_profile_pic_url()
+    except :
+        url=None
 
     # urllib.request.urlretrieve(url,f"caps/{uname}.jpg")
 

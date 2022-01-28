@@ -9,11 +9,14 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/<string:username>",methods=["POST"])
+@app.route("/<string:username>",methods=["GET","POST"])
 def download(username):
-    with open("prof",'a') as f:
-        f.write(f"{str(username)}\n")
-    return download_pic(username)
+
+    found = download_pic(username)
+    if found:
+        return found
+    else:
+        return "NotFound"
 
 
 if __name__=="__main__":

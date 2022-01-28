@@ -1,21 +1,3 @@
-
-var typingtimer;
-var doneTypInt = 3000;
-const x=document.getElementsByName("username")[0]
-
-
-x.addEventListener('keyup',function(){
-    clearTimeout(typingtimer);
-    typingtimer=setTimeout(donetyping,  doneTypInt)
-    const dwn=document.getElementById("download");
-    dwn.setAttribute('href',"#");
-    dwn.style.display="none";
-});
-
-x.addEventListener('keydown',function(){
-    clearTimeout(typingtimer);
-});
-
 function donetyping(){
     const loader=document.getElementsByClassName("loader-wrap")[0];
     loader.style.display="block";
@@ -28,12 +10,20 @@ function donetyping(){
         if (this.readyState == 4 && this.status == 200){
         
         var url = xhr.responseText;
-        console.log(url);
+        if(url){
+            const dwn=document.getElementById("download");
+            dwn.setAttribute('href',url);
+            dwn.classList.toggle("disabled");
+            document.getElementsByClassName("found")[0].style.display="block";
+            loader.style.display="none";
+        }
+        else{
+            loader.style.display="none";
+            document.getElementsByClassName("alert")[0].style.display="block";
+            
+        }
         
-        const dwn=document.getElementById("download");
-        dwn.setAttribute('href',url);
-        dwn.style.display="block";
-        loader.style.display="none";
+        
         }
     }
     
