@@ -26,17 +26,22 @@
   } 
 
 
-#main-content{
+#main-content .col{
   margin: 30px;
   /* border: 2px solid white; */
   background-color: white;
   box-shadow: 2px 2px 3px #000000cc;
   padding: 20px;
+  border-radius: 10px;
+}
+
+#main-content .lead{
+  text-align: center;
 }
 
 body{
   background: #d6249f;
-  background: radial-gradient(to top right, #fdf497 0%, #fdf497 25%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  background: radial-gradient(to top right, #fdf497, #fdf497, #fd5949 ,#d6249f ,#285AEB );
   background-size: cover;
   /* color: white; */
 }
