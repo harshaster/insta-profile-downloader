@@ -1,8 +1,10 @@
 function donetyping(){
+    document.getElementsByClassName("not-found")[0].style.display="none";
+    dwn.classList.toggle("disabled");
+    document.getElementsByClassName("found")[0].style.display="none";
     const loader=document.getElementsByClassName("loader-wrap")[0];
     loader.style.display="block";
     const uname=document.getElementsByName("username")[0].value;
-    console.log(uname);
     var xhr = new XMLHttpRequest();
     xhr.open('post',"/"+uname)
     xhr.send()
@@ -19,7 +21,7 @@ function donetyping(){
         }
         else{
             loader.style.display="none";
-            document.getElementsByClassName("alert")[0].style.display="block";
+            document.getElementsByClassName("not-found")[0].style.display="block";
             
         }
         
