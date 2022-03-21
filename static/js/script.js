@@ -1,6 +1,7 @@
 function donetyping(){
     document.getElementsByClassName("not-found")[0].style.display="none";
-    dwn.classList.toggle("disabled");
+    const dwn=document.getElementById("download");
+    dwn.classList.add("disabled");
     document.getElementsByClassName("found")[0].style.display="none";
     const loader=document.getElementsByClassName("loader-wrap")[0];
     loader.style.display="block";
@@ -13,9 +14,9 @@ function donetyping(){
         
         var url = xhr.responseText;
         if(url){
-            const dwn=document.getElementById("download");
+            
             dwn.setAttribute('href',url);
-            dwn.classList.toggle("disabled");
+            dwn.classList.remove("disabled");
             document.getElementsByClassName("found")[0].style.display="block";
             loader.style.display="none";
         }
